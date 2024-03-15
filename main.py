@@ -4,11 +4,10 @@ import logging
 import asyncio
 from bot.handlers.basic import say_hellow
 from bot.handlers.create_test import *
+from bot.settings import get_key
 
 
-# Данные для подключения к YaGPT
-
-token = '7195842807:AAHJHlXYy9DZQB_3G6mZ842eKYIjcxjYVQA'
+token = get_key('/home/misha/PycharmProjects/ViteTech_bot/KEY').key
 
 async def start_bot(token):
     logging.basicConfig(level=logging.INFO,
