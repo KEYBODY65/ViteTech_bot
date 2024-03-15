@@ -3,6 +3,8 @@ from aiogram.filters import Command
 import logging
 import asyncio
 from bot.handlers.basic import say_hellow
+import requests
+import json
 
 
 token = '7195842807:AAHJHlXYy9DZQB_3G6mZ842eKYIjcxjYVQA'
@@ -19,6 +21,14 @@ async def start_bot(token):
         await dispatcher.start_polling(bot, allowed_updates=dispatcher.resolve_used_update_types())
     finally:
         await bot.session.close()
+
+@dp.message_handler(content_types=['photo', 'document'])
+async def photo_or_doc_handler(message: types.Message):
+    file_in_io = io.BytesIO()
+    if message.content_type == 'photo':
+        await message.photo[-1].download(destination_file=file_in_io)
+    elif message.content_type == 'document':
+        await message.document.download(destination_file=file_in_io)
 
 
 if __name__ == '__main__':
