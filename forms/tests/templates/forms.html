@@ -1,0 +1,29 @@
+
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<main class="container mt-2 p-5" id="main">
+    <form method="post">
+        <h1>{{ test.title }}</h1>
+        <h3>{{ test.description }}</h3>
+        <p></p>
+        <label for="name">Ваше ФИО</label>
+        <input class="form-control" id="name" name="name" placeholder="ФИО" required/>
+        <p></p>
+        {% for task in tasks %}
+        <div>
+            <label for="{{ task.title.id }}">{{ task.title.text }}</label>
+             <select name="{{ task.title.id }}" id="{{ task.title.id }}" class="form-select form-select"
+                                >
+                 {% for ans in task.choices %}
+                  <option name="{{ ans.id }}">
+                        {{ ans.text }}
+                  </option>
+                 {% endfor %}
+             </select>
+            <p></p>
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Отправить</button>
+    </form>
+</main>
