@@ -21,5 +21,4 @@ def get_key(path):
     )
 
 
-print()
 
