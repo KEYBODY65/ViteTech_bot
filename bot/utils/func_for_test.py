@@ -4,8 +4,8 @@ import time
 
 
 def api_to_ygpt(system_prompt, prompt):
-    yandex_cloud_catalog = "b1gmasb9gep76ibr32ga"
-    yandex_gpt_api_key = "AQVN2kypilSivP_FGODoaobvzAmweoeI4l0LKsks"
+    yandex_cloud_catalog = ""
+    yandex_gpt_api_key = ""
 
     yandex_gpt_model = "yandexgpt"
     body = {
